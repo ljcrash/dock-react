@@ -1,0 +1,9 @@
+sudo: requited
+services:
+  - docker
+
+before_install:
+  - docker build -t letterjlab/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -t letterjlab/docker-react npm run test -- --coverage
